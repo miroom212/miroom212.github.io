@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -32,12 +30,12 @@ body {
     animation: mover 8s linear infinite;
 }
 
+/* FOTO CUADRADA */
 #foto {
     width: 150px;
     height: 150px;
 
     object-fit: cover;
-    border-radius: 50%;
 
     border: 4px solid white;
 
@@ -46,6 +44,7 @@ body {
         4px 4px 10px black;
 }
 
+/* TEXTO */
 #bienvenida {
     font-size: 100px;
     color: white;
@@ -56,6 +55,7 @@ body {
         -3px -3px 6px black;
 }
 
+/* MOVIMIENTO IZQUIERDA → DERECHA */
 @keyframes mover {
 
     0% {
@@ -78,7 +78,7 @@ body {
 
     <img
         id="foto"
-        src="http://www.pueblosecreto.com/net/usermedia/mediafile.ashx?iid=4687865&sz=150"
+        src="https://www.pueblosecreto.com/net/usermedia/mediafile.ashx?iid=4687865&sz=150"
         alt="Foto">
 
     <div id="bienvenida">
@@ -86,7 +86,6 @@ body {
     </div>
 
 </div>
-
 
 <script>
 
@@ -105,3 +104,4 @@ document.getElementById("bienvenida").textContent =
 
 </body>
 </html>
+
