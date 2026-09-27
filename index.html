@@ -13,27 +13,46 @@ html, body {
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
     font-family: Impact, Arial, sans-serif;
 }
 
 #bienvenida {
+    position: absolute;
+
+    /* Centrado vertical */
+    top: 50%;
+    transform: translateY(-50%);
+
+    /* TAMAÑO */
+    font-size: 100px;
+
     color: white;
-
-    /* TAMAÑO GRANDE */
-    font-size: 180px;
-
     font-weight: bold;
-    text-align: center;
+    white-space: nowrap;
 
     text-shadow:
         5px 5px 10px black,
         -3px -3px 6px black;
 
-    white-space: nowrap;
+    /* ANIMACIÓN */
+    animation: mover 8s linear infinite;
 }
+
+/* MOVER DE IZQUIERDA A DERECHA */
+@keyframes mover {
+
+    0% {
+        left: 0;
+        transform: translate(-100%, -50%);
+    }
+
+    100% {
+        left: 100%;
+        transform: translate(0, -50%);
+    }
+}
+
 </style>
 </head>
 
@@ -42,6 +61,7 @@ body {
 <div id="bienvenida">BIENVENIDO</div>
 
 <script>
+
 const params = new URLSearchParams(window.location.search);
 
 const nombre =
@@ -51,6 +71,7 @@ const nombre =
 
 document.getElementById("bienvenida").textContent =
     "BIENVENIDO " + nombre;
+
 </script>
 
 </body>
