@@ -1,5 +1,61 @@
 <!DOCTYPE html>
+<html<!DOCTYPE html>
 <html lang="es">
+<head>
+<meta charset="UTF-8">
+
+<style>
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    background: transparent;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Impact, Arial, sans-serif;
+}
+
+#bienvenida {
+    color: white;
+
+    /* TAMAÑO 100 PX */
+    font-size: 100px;
+
+    font-weight: bold;
+    text-align: center;
+
+    text-shadow:
+        5px 5px 10px black,
+        -3px -3px 6px black;
+
+    white-space: nowrap;
+}
+</style>
+</head>
+
+<body>
+
+<div id="bienvenida">BIENVENIDO</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+
+const nombre =
+    params.get("name") ||
+    params.get("membername") ||
+    "Visitante";
+
+document.getElementById("bienvenida").textContent =
+    "BIENVENIDO " + nombre;
+</script>
+
+</body>
+</html> lang="es">
 <head>
 <meta charset="UTF-8">
 
