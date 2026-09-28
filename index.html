@@ -13,83 +13,36 @@ html, body {
 }
 
 body {
-    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: Impact, Arial, sans-serif;
 }
 
-#movimiento {
-    position: absolute;
-    top: 50%;
-
-    display: flex;
-    align-items: center;
-    gap: 30px;
-
-    white-space: nowrap;
-
-    animation: mover 8s linear infinite;
-}
-
-#foto {
-    width: 150px;
-    height: 150px;
-
-    object-fit: cover;
-    border-radius: 50%;
-
-    border: 4px solid white;
-
-    box-shadow:
-        0 0 15px white,
-        4px 4px 10px black;
-}
-
 #bienvenida {
-    font-size: 100px;
     color: white;
+
+    /* TAMAÑO DE LAS LETRAS */
+    font-size: 90px;
+
     font-weight: bold;
+    text-align: center;
 
     text-shadow:
-        5px 5px 10px black,
-        -3px -3px 6px black;
+        4px 4px 8px black,
+        -2px -2px 4px black;
+
+    white-space: nowrap;
 }
-
-@keyframes mover {
-
-    0% {
-        left: 0;
-        transform: translate(-100%, -50%);
-    }
-
-    100% {
-        left: 100%;
-        transform: translate(0, -50%);
-    }
-}
-
 </style>
 </head>
 
 <body>
 
-<div id="movimiento">
-
-    <img
-        id="foto"
-        src="http://www.pueblosecreto.com/net/usermedia/mediafile.ashx?iid=4687865&sz=150"
-        alt="Foto">
-
-    <div id="bienvenida">
-        BIENVENIDO
-    </div>
-
-</div>
-
+<div id="bienvenida">BIENVENIDO</div>
 
 <script>
-
-const params =
-    new URLSearchParams(window.location.search);
+const params = new URLSearchParams(window.location.search);
 
 const nombre =
     params.get("name") ||
@@ -98,7 +51,6 @@ const nombre =
 
 document.getElementById("bienvenida").textContent =
     "BIENVENIDO " + nombre;
-
 </script>
 
 </body>
