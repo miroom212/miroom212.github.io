@@ -20,7 +20,7 @@ body {
     font-family: Impact, Arial, sans-serif;
 }
 
-#bienvenido {
+#bienvenida {
     color: white;
 
     /* TAMAÑO DE LAS LETRAS */
@@ -28,19 +28,20 @@ body {
 
     font-weight: bold;
     text-align: center;
-
-    text-shadow:
-        4px 4px 8px black,
-        -2px -2px 4px black;
-
     white-space: nowrap;
+
+    /* EFECTO SOMBRA */
+    text-shadow:
+        3px 3px 0px #000,
+        6px 6px 4px rgba(0, 0, 0, 0.9),
+        10px 10px 12px rgba(0, 0, 0, 0.7);
 }
 </style>
 </head>
 
 <body>
 
-<div id="bienvenida">BIENVENIDO</div>
+<div id="bienvenida">BIENVENID@</div>
 
 <script>
 const params = new URLSearchParams(window.location.search);
@@ -51,7 +52,7 @@ const nombre =
     "Visitante";
 
 document.getElementById("bienvenida").textContent =
-    "BIENVENIDO " + nombre;
+    "BIENVENID@ " + nombre;
 </script>
 
 </body>
