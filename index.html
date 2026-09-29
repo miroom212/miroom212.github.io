@@ -13,27 +13,40 @@ html, body {
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
     font-family: Impact, Arial, sans-serif;
 }
 
 #bienvenida {
+    position: absolute;
+    top: 50%;
+
     color: white;
-
-    /* TAMAÑO DE LAS LETRAS */
     font-size: 90px;
-
     font-weight: bold;
-    text-align: center;
     white-space: nowrap;
 
-    /* SOMBRA CON DESENFOQUE SUAVE */
+    /* SOMBRA DESENFOCADA */
     text-shadow:
         2px 2px 3px rgba(0, 0, 0, 1),
         5px 5px 8px rgba(0, 0, 0, 0.85),
         8px 8px 16px rgba(0, 0, 0, 0.55);
+
+    /* MOVIMIENTO */
+    animation: mover 8s linear infinite;
+}
+
+/* IZQUIERDA → DERECHA */
+@keyframes mover {
+    from {
+        transform: translate(-100%, -50%);
+        left: 0;
+    }
+
+    to {
+        transform: translate(0, -50%);
+        left: 100%;
+    }
 }
 </style>
 </head>
