@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,7 +10,9 @@ html, body {
     height: 100%;
     margin: 0;
     overflow: hidden;
-    background: transparent;
+
+    /* FONDO OSCURO */
+    background: rgba(0, 0, 0, 0.85);
 }
 
 body {
@@ -21,31 +24,62 @@ body {
     position: absolute;
     top: 50%;
 
-    color: white;
+    /* TEXTO */
+    color: #ffffff;
     font-size: 90px;
     font-weight: bold;
     white-space: nowrap;
 
-    /* SOMBRA DESENFOCADA */
+    /* EFECTO NEÓN */
     text-shadow:
-        2px 2px 3px rgba(0, 0, 0, 1),
-        5px 5px 8px rgba(0, 0, 0, 0.85),
-        8px 8px 16px rgba(0, 0, 0, 0.55);
+        0 0 5px #ffffff,
+        0 0 10px #00ffff,
+        0 0 20px #00ffff,
+        0 0 35px #00ffff,
+        0 0 55px #00ffff,
+        4px 4px 12px rgba(0, 0, 0, 0.9);
 
-    /* MOVIMIENTO */
-    animation: mover 12s linear infinite;
+    /* MOVIMIENTO DE IZQUIERDA A DERECHA */
+    animation:
+        mover 12s linear infinite,
+        neon 1.8s ease-in-out infinite alternate;
 }
 
-/* IZQUIERDA → DERECHA */
+
+/* MOVIMIENTO IZQUIERDA → DERECHA */
 @keyframes mover {
     from {
-        transform: translate(-100%, -50%);
         left: 0;
+        transform: translate(-100%, -50%);
     }
 
     to {
-        transform: translate(0, -50%);
         left: 100%;
+        transform: translate(0, -50%);
+    }
+}
+
+
+/* PULSACIÓN SUAVE DEL NEÓN */
+@keyframes neon {
+    from {
+        text-shadow:
+            0 0 4px #ffffff,
+            0 0 8px #00ffff,
+            0 0 15px #00ffff,
+            0 0 25px #00ffff,
+            0 0 40px #00ffff,
+            4px 4px 12px rgba(0, 0, 0, 0.9);
+    }
+
+    to {
+        text-shadow:
+            0 0 7px #ffffff,
+            0 0 15px #00ffff,
+            0 0 30px #00ffff,
+            0 0 50px #00ffff,
+            0 0 75px #00ffff,
+            4px 4px 15px rgba(0, 0, 0, 0.9);
     }
 }
 </style>
@@ -69,3 +103,4 @@ document.getElementById("bienvenida").textContent =
 
 </body>
 </html>
+```
