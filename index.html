@@ -22,7 +22,7 @@ body {
 }
 
 #bienvenida {
-    color: white;
+    color: #ffffff;
 
     /* TAMAÑO DE LAS LETRAS */
     font-size: 90px;
@@ -31,11 +31,46 @@ body {
     text-align: center;
     white-space: nowrap;
 
-    /* EFECTO SOMBRA */
+    /* EFECTO NEÓN AZUL */
     text-shadow:
-        3px 3px 0px #000,
-        6px 6px 4px rgba(0, 0, 0, 0.9),
-        10px 10px 12px rgba(0, 0, 0, 0.7);
+        /* Borde/sombra oscura para mantener definición */
+        3px 3px 0px #000000,
+
+        /* Luz azul cercana */
+        0 0 5px #00aaff,
+        0 0 10px #00aaff,
+        0 0 20px #008cff,
+
+        /* Resplandor exterior */
+        0 0 35px #0077ff,
+        0 0 55px #0066ff,
+        0 0 80px #0055ff;
+
+    /* Animación suave del neón */
+    animation: neonAzul 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes neonAzul {
+    from {
+        text-shadow:
+            3px 3px 0px #000000,
+            0 0 5px #00aaff,
+            0 0 10px #00aaff,
+            0 0 20px #008cff,
+            0 0 35px #0077ff,
+            0 0 50px #0066ff;
+    }
+
+    to {
+        text-shadow:
+            3px 3px 0px #000000,
+            0 0 8px #00ccff,
+            0 0 15px #00aaff,
+            0 0 30px #0099ff,
+            0 0 50px #0077ff,
+            0 0 75px #0055ff,
+            0 0 100px #0044ff;
+    }
 }
 </style>
 </head>
