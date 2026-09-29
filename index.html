@@ -1,220 +1,61 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
 
-  <title>Welcome</title>
+<style>
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    background: transparent;
+}
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Impact, Arial, sans-serif;
+}
 
-    html, body {
-      background: transparent !important;
-    }
+#bienvenida {
+    color: white;
 
-    body {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      font-family: Arial, sans-serif;
-    }
+    /* TAMAÑO DE LAS LETRAS */
+    font-size: 90px;
 
-    .container {
-      width: 90%;
-      max-width: 600px;
-      text-align: center;
-      background: transparent;
-    }
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
 
-    h1 {
-      font-size: clamp(3rem, 12vw, 7rem);
-      letter-spacing: 8px;
-      color: #00ffff;
-      text-shadow:
-        0 0 10px #00ffff,
-        0 0 25px #00ffff,
-        0 0 50px #0088ff;
-      animation: glow 2s infinite alternate;
-    }
-
-    .subtitle {
-      margin-top: 15px;
-      color: #ffffff;
-      letter-spacing: 3px;
-      text-shadow: 0 0 8px #00ffff;
-    }
-
-    .login {
-      margin-top: 50px;
-    }
-
-    input {
-      width: 100%;
-      max-width: 350px;
-      padding: 16px;
-      border: 1px solid #00ffff;
-      border-radius: 8px;
-      outline: none;
-
-      /* Transparente */
-      background: transparent;
-
-      color: white;
-      text-align: center;
-      font-size: 18px;
-      box-shadow: 0 0 15px rgba(0,255,255,0.4);
-    }
-
-    input::placeholder {
-      color: rgba(255,255,255,0.7);
-    }
-
-    input:focus {
-      box-shadow:
-        0 0 15px #00ffff,
-        0 0 30px rgba(0,255,255,0.6);
-    }
-
-    button {
-      display: block;
-      margin: 20px auto;
-      padding: 14px 40px;
-
-      border: 1px solid #00ffff;
-      border-radius: 8px;
-
-      /* Transparente */
-      background: transparent;
-
-      color: #00ffff;
-      font-size: 16px;
-      font-weight: bold;
-      letter-spacing: 2px;
-
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      background: rgba(0,255,255,0.15);
-
-      box-shadow:
-        0 0 15px #00ffff,
-        0 0 35px #00ffff;
-
-      transform: scale(1.05);
-    }
-
-    #welcomeUser {
-      display: none;
-      background: transparent;
-    }
-
-    #welcomeUser h2 {
-      font-size: clamp(2rem, 8vw, 5rem);
-      color: #00ffff;
-
-      text-shadow:
-        0 0 10px #00ffff,
-        0 0 25px #00ffff;
-    }
-
-    @keyframes glow {
-      from {
-        opacity: 0.7;
-        transform: scale(0.98);
-      }
-
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-  </style>
+    /* EFECTO NEÓN AZUL */
+    text-shadow:
+        2px 2px 0px #000,
+        0 0 5px #00aaff,
+        0 0 10px #00aaff,
+        0 0 20px #0088ff,
+        0 0 35px #0066ff,
+        0 0 50px #004cff;
+}
+</style>
 </head>
 
 <body>
 
-  <div class="container">
+<div id="bienvenida">BIENVENID@</div>
 
-    <div id="start">
+<script>
+const params = new URLSearchParams(window.location.search);
 
-      <h1>WELCOME</h1>
+const nombre =
+    params.get("name") ||
+    params.get("membername") ||
+    "Visitante";
 
-      <p class="subtitle">
-        ENTER MY WORLD
-      </p>
-
-      <div class="login">
-
-        <input
-          id="nickname"
-          type="text"
-          placeholder="Escribe tu nick..."
-          maxlength="30"
-          autocomplete="nickname"
-        >
-
-        <button onclick="entrar()">
-          ENTRAR
-        </button>
-
-      </div>
-
-    </div>
-
-    <div id="welcomeUser">
-
-      <h2 id="message"></h2>
-
-      <p class="subtitle">
-        WELCOME TO MY BLOG
-      </p>
-
-    </div>
-
-  </div>
-
-  <script>
-    function entrar() {
-
-      const input = document.getElementById("nickname");
-      const nick = input.value.trim();
-
-      if (!nick) {
-        input.focus();
-        return;
-      }
-
-      document.getElementById("start").style.display = "none";
-
-      document.getElementById("message").textContent =
-        "WELCOME, " + nick.toUpperCase();
-
-      document.getElementById("welcomeUser").style.display = "block";
-
-      localStorage.setItem("visitorNick", nick);
-    }
-
-    document
-      .getElementById("nickname")
-      .addEventListener("keydown", function(event) {
-
-        if (event.key === "Enter") {
-          entrar();
-        }
-
-      });
-  </script>
+document.getElementById("bienvenida").textContent =
+    "BIENVENID@ " + nombre;
+</script>
 
 </body>
 </html>
-```
